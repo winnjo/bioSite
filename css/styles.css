@@ -5,34 +5,133 @@ CSS Style Format
 */
 
 /****
-  CSS Default
+  CSS Reset Default
 ****/
-
 body,
 header,
 nav,
-ul,
-li,
-a,
 main,
-section,
+footer,
+img,
 h1,
-h2,
 h3,
-footer {
+ul,
+aside,
+figure,
+figcaption {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  border: 0;
 }
 
-ul {
+/* 
+  Website Header Banner
+*/
+
+.coding-banner {
+  background-image: url('../images/coding.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+/* Navigation */
+.main-nav {
+  margin-top: 20px;
+}
+
+.main-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.main-nav li {
   list-style: none;
 }
 
-a {
-  color: inherit;
+.main-nav a {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: white;
   text-decoration: none;
+  padding: 12px 24px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
+
+/*
+  Welcome Section with two sides of the section separated
+*/
+.intro-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-left: 6px solid #2e8b57;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  gap: 40px;
+}
+
+/* Left Side */
+.intro-content {
+  flex: 2;
+}
+
+/* Welcome Heading */
+.intro-content h2 {
+  color: #003366;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* Intro Paragraph */
+.intro-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Right side Image Container */
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+/* Hero Image Styling */
+.hero-image img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 12px;
+  border: 3px solid #003366;
+  box-shadow: 0 0 10px rgba(0, 51, 102, 0.25), 0 0 20px rgba(46, 139, 87, 0.15);
+}
+
+/* Hero Image Description Styling */
+.hero-image-caption {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  font-style: italic;
+  color: #555;
+}
+
+/* Body */
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -41,32 +140,6 @@ body {
   background-color: #f4f4f4;
   line-height: 1.5;
   color: #333;
-}
-
-/* Header */
-
-header {
-  background-color: #003366;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-/* Navigation */
-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-nav li {
-  display: inline-block;
-  margin: 0 15px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
 }
 
 /* Main */
@@ -80,11 +153,45 @@ section {
   border-radius: 8px;
 }
 
-/* Heading */
-h1,
-h2,
-h3 {
-  margin-top: 0;
+/* Grid Layout Styles */
+.homepage-grid {
+  display: block;
+  margin: 2em;
+}
+
+.homepage-grid article {
+  padding: 1em;
+}
+
+.homepage-grid ul {
+  list-style-type: none;
+  margin-top: 1em;
+  padding: 0;
+}
+
+.homepage-grid li {
+  background-color: #003366;
+  color: #ffffff;
+  margin: 0.5em 0;
+  padding: 0.75em;
+  border-left: 5px solid #2e8b57;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover Effect */
+.homepage-grid li:hover {
+  background-color: #2e8b57;
+}
+
+/* Alternate the Row Colors */
+.row-one {
+  background-color: #ffffff;
+}
+
+.row-two {
+  background-color: #e8f2ff;
 }
 
 /* Footer */
@@ -94,4 +201,53 @@ footer {
   text-align: center;
   padding: 15px;
   margin-top: 20px;
+}
+
+/* ==========================================
+ViewPorts for different devices
+========================================== */
+
+/* Tablet Viewport Style */
+@media screen and (min-width: 620px), print {
+  .homepage-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop Viewport Style */
+@media screen and (min-width: 1000px), print {
+  .homepage-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .grid-box:hover {
+    transform: translateY(-3px);
+    transition: 0.3s ease;
+  }
+}
+
+/* Large Desktop Viewport Style */
+@media screen and (min-width: 1921px), print {
+  .homepage-grid {
+    max-width: 1800px;
+  }
+
+  .grid-box {
+    font-size: 1.1rem;
+  }
+}
+
+/* Print Styles */
+
+@media print {
+  nav,
+  footer {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
 }
