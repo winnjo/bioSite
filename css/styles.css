@@ -44,36 +44,50 @@ figcaption {
 
 /* Navigation */
 .main-nav {
-  margin-top: 20px;
+  background-color: #003366;
+  padding: 1em 0;
+  text-align: center;
+  border-bottom: 4px solid #2e8b57;
 }
 
 .main-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .main-nav li {
-  list-style: none;
+  display: inline-block;
+  margin: 0 15px;
 }
 
 .main-nav a {
   font-family: 'Oswald', sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: white;
+  color: #ffffff;
   text-decoration: none;
-  padding: 12px 24px;
-  border: 2px solid transparent;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  font-size: 1.1em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Navigation Hover Effect */
+.main-nav a:hover {
+  background-color: #2e8b57;
+  color: #ffffff;
+}
+
+/* Current navigation page effect */
+.main-nav a.active {
+  background-color: #2e8b57;
 }
 
 /*
   Welcome Section with two sides of the section separated
 */
-.intro-section {
+.section {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -88,19 +102,19 @@ figcaption {
 }
 
 /* Left Side */
-.intro-content {
+.content {
   flex: 2;
 }
 
 /* Welcome Heading */
-.intro-content h2 {
+.content h2 {
   color: #003366;
   margin-bottom: 20px;
   font-size: 2rem;
 }
 
 /* Intro Paragraph */
-.intro-content p {
+.-content p {
   font-size: 1.1rem;
   line-height: 1.8;
   color: #444;
@@ -115,9 +129,10 @@ figcaption {
 /* Hero Image Styling */
 .hero-image img {
   width: 100%;
-  max-width: 320px;
+  max-width: 160px;
   border-radius: 12px;
   border: 3px solid #003366;
+  /* source: https: //developer.mozilla.org/en-US/docs/Web/CSS/box-shadow */
   box-shadow: 0 0 10px rgba(0, 51, 102, 0.25), 0 0 20px rgba(46, 139, 87, 0.15);
 }
 
@@ -186,11 +201,11 @@ section {
 }
 
 /* Alternate the Row Colors */
-.row-one {
+.article-one {
   background-color: #ffffff;
 }
 
-.row-two {
+.article-two {
   background-color: #e8f2ff;
 }
 
@@ -208,9 +223,46 @@ ViewPorts for different devices
 ========================================== */
 
 /* Tablet Viewport Style */
-@media screen and (min-width: 620px), print {
+@media screen and (max-width: 620px), print {
+  /* Display intro content */
+  .intro-content {
+    display: block;
+  }
+
+  /* Hide the first image */
+  .hero-image {
+    display: block;
+  }
+  .hero-image-caption {
+    display: none;
+  }
+
+  /* Style grid home page */
   .homepage-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Navigation styles */
+  nav li {
+    border-top: none;
+    display: inline-block;
+    font-size: 1.25em;
+  }
+
+  nav li a {
+    padding: 0.5em;
+  }
+
+  /* Hobbies mobile style */
+  aside {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 15px;
+  }
+
+  aside h2,
+  aside p {
+    grid-column: 1 / span 2;
   }
 }
 
@@ -221,9 +273,22 @@ ViewPorts for different devices
     margin: 0 auto;
   }
 
+  /* grid box hover technique: https: //developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/translateY */
   .grid-box:hover {
     transform: translateY(-3px);
     transition: 0.3s ease;
+  }
+
+  /* Hobbies regular desktop style */
+  aside {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+  }
+
+  aside h2,
+  aside p {
+    grid-column: 1 / span 3;
   }
 }
 
@@ -235,6 +300,11 @@ ViewPorts for different devices
 
   .grid-box {
     font-size: 1.1rem;
+  }
+
+  .gallery {
+    grid-template-columns: auto auto;
+    gap: 20px;
   }
 }
 
@@ -250,4 +320,46 @@ ViewPorts for different devices
     background: white;
     color: black;
   }
+}
+
+/* Hobby Gallery Styles */
+aside {
+  margin: 2em;
+}
+
+aside h2 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 0.5em;
+}
+
+aside p {
+  text-align: center;
+  margin-bottom: 2em;
+  line-height: 1.6;
+}
+
+/* Figure Styles */
+figure {
+  background-color: #ffffff;
+  border: 3px solid #003366;
+  border-radius: 10px;
+  padding: 1em;
+  margin-bottom: 1.5em;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+figure img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border: 2px solid #2e8b57;
+  border-radius: 8px;
+}
+
+figcaption {
+  margin-top: 1em;
+  text-align: center;
+  line-height: 1.5;
+  font-style: italic;
 }
