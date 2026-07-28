@@ -42,6 +42,12 @@ figcaption {
   text-align: center;
 }
 
+.coding-banner h1 {
+  font-size: 2.75em;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
 /* Navigation */
 .main-nav {
   background-color: #003366;
@@ -223,7 +229,7 @@ ViewPorts for different devices
 ========================================== */
 
 /* Tablet Viewport Style */
-@media screen and (max-width: 620px), print {
+@media screen and (min-width: 481px) and (max-width: 1024px), print {
   /* Display intro content */
   .intro-content {
     display: block;
