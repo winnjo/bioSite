@@ -14,6 +14,7 @@ main,
 footer,
 img,
 h1,
+h2,
 h3,
 ul,
 aside,
@@ -176,12 +177,7 @@ section {
 
 /* Grid Layout Styles */
 .homepage-grid {
-  display: block;
   margin: 2em;
-}
-
-.homepage-grid article {
-  padding: 1em;
 }
 
 .homepage-grid ul {
@@ -199,6 +195,18 @@ section {
   border-radius: 5px;
   font-weight: bold;
   transition: background-color 0.3s ease;
+}
+
+/* display one column for mobile */
+.grid-row {
+  display: block;
+}
+
+.homepage-grid article {
+  padding: 1.5em;
+  margin-bottom: 1em;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 51, 102, 0.25), 0 0 20px rgba(46, 139, 87, 0.15);
 }
 
 /* Hover Effect */
